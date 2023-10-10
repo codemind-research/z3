@@ -394,7 +394,10 @@ extern "C" {
         Z3_TRY;
         LOG_Z3_del_context(c);
         RESET_ERROR_CODE();
+        unsigned long long prev_mem_size = memory::get_configured_max_size();
+        memory::set_max_size(0);
         dealloc(mk_c(c));
+        memory::set_max_size(prev_mem_size);
         Z3_CATCH;
     }
 

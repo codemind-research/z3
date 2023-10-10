@@ -203,6 +203,10 @@ unsigned long long memory::get_allocation_count() {
     return g_memory_alloc_count;
 }
 
+unsigned long long memory::get_configured_max_size() {
+    return g_memory_max_size;
+}
+
 
 void memory::display_max_usage(std::ostream & os) {
     unsigned long long mem = get_max_used_memory();
